@@ -6,6 +6,11 @@ public class Ship1 : MonoBehaviour {
 
     int pitchCounter = 0;
     int rollCounter = 0;
+
+    /// <summary>
+    /// This is a test comment
+    /// </summary>
+    
     int i = 0;
     float y = 0;
     float x = 0;
