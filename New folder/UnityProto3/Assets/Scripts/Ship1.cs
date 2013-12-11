@@ -6,6 +6,8 @@ public class Ship1 : MonoBehaviour {
 
     int pitchCounter = 0;
     int rollCounter = 0;
+    Helicopter1 heli;
+
 
     /// <summary>
     /// This is a test comment
@@ -23,8 +25,11 @@ public class Ship1 : MonoBehaviour {
 
     void Start() {
         transform.position = new Vector3(0, 0, 0);
-
         
+          
+
+        //heli = gameObject.AddComponent<Helicopter1>();
+
         yValues = new List<double> {0.000000, 0.174497, 0.348782, 0.522642, 0.695866, 0.868241, 1.039558, 1.209609, 1.378187, 1.545085,
         1.710101, 1.873033, 2.033683, 2.191856, 2.347358, 2.500000, 2.649596, 2.795965, 2.938926, 3.078307,
         3.213938, 3.345653, 3.473292, 3.596699, 3.715724, 3.830222, 3.940054, 4.045085, 4.145188, 4.240240,
@@ -43,8 +48,9 @@ public class Ship1 : MonoBehaviour {
         -4.330127, -4.240240, -4.145188, -4.045085, -3.940054, -3.830222, -3.715724, -3.596699, -3.473292, -3.345653,
         -3.213938, -3.078307, -2.938926, -2.795965, -2.649596, -2.500000, -2.347358, -2.191856, -2.033683, -1.873033, 
         -1.710101, -1.545085, -1.378187, -1.209609, -1.039558, -0.868241, -0.695866, -0.522642, -0.348782, -0.174497};
-        
 
+        //heli.Start();
+        
         //yValues = new List<double>();
         //float freq = 1 / 6;
         //float twoPiFreq = 2 * Mathf.PI * freq;
@@ -65,7 +71,8 @@ public class Ship1 : MonoBehaviour {
 
     void Update()
     {
-
+        var poz = new Vector3(-150, 65, -20);
+        Instantiate(heli, poz, Quaternion.identity);
         i++;
 
         //print("i= " + i + " mod i= " + (i % 2));
@@ -80,6 +87,8 @@ public class Ship1 : MonoBehaviour {
             //subMethodRoll();
             rollCounter++;
         }
+
+        heli.Update();
     }
 
     void subMethodPitch()
@@ -111,6 +120,7 @@ public class Ship1 : MonoBehaviour {
 
         Vector3 point = gameObject.transform.position;
         print(point.x + ", " + point.y + ", " + point.z);
+
 
         //gameObject.transform.Rotate(0, 0, yRotate);
     }
